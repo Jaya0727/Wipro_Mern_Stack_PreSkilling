@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ShopZone - E-commerce</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f6f6;
+    }
+    /* Top Bar */
+    .top-bar button {
+  margin-left: 10px;
+  border-radius: 20px;
+  padding: 5px 15px;
+    }
+    .top-center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    /* Navbar */
+    .navbar {
+      background: #222;
+    }
+
+    .navbar a {
+      color: white !important;
+      margin-right: 15px;
+    }
+
+    /* Hero */
+    .hero {
+      background: url("https://images.unsplash.com/photo-1441986300917-64674bd600d8") center/cover;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(111, 219, 235, 0.929);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 100px;
+      font-weight: bold;
+    }
+
+    .hero button {
+      padding: 12px 30px;
+      background: coral;
+      border: none;
+      color: white;
+      font-size: 18px;
+      border-radius: 5px;
+    }
+
+    /* Filters */
+    .filters {
+      margin: 30px 0;
+      text-align: center;
+    }
+
+    .filters button {
+      margin: 5px;
+    }
+
+    /* Product Cards */
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .deal-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  transition: 0.3s;
+}
+
+.deal-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.deal-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.deal-card .badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+    /* Footer */
+    footer {
+      background: #222;
+      color: white;
+      padding: 30px;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+<!-- Top Bar -->
+<div class="top-bar">
+    <div class="top-center">
+  <div>Welcome to ShopZone!</div>
+  <div>
+    <button class="btn btn-outline-dark btn-sm">Login</button>
+    <button class="btn btn-dark btn-sm">Register</button>
+  </div>
+</div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" href="#">ShopZone</a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">🛒 Cart</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero">
+  <div>
+    <h1>Festive Season SALE</h1>
+    <p>Up to 50% Off</p>
+    <button>Shop Now</button>
+  </div>
+</div>
+<div class="container my-5">
+  <h2 class="text-center mb-4">🔥 Big Deals</h2>
+
+  <div class="row">
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="deal-card">
+        <span class="badge badge-danger">50% OFF</span>
+        <img src="https://via.placeholder.com/300x200">
+        <h5>Smart Watch</h5>
+        <p><del>₹1999</del> <strong>₹999</strong></p>
+        <button class="btn btn-warning btn-sm">Grab Deal</button>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="deal-card">
+        <span class="badge badge-danger">60% OFF</span>
+        <img src="https://via.placeholder.com/300x200">
+        <h5>Headphones</h5>
+        <p><del>₹2499</del> <strong>₹999</strong></p>
+        <button class="btn btn-warning btn-sm">Grab Deal</button>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="deal-card">
+        <span class="badge badge-danger">40% OFF</span>
+        <img src="https://via.placeholder.com/300x200">
+        <h5>Shoes</h5>
+        <p><del>₹2999</del> <strong>₹1799</strong></p>
+        <button class="btn btn-warning btn-sm">Grab Deal</button>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="deal-card">
+        <span class="badge badge-danger">70% OFF</span>
+        <img src="https://via.placeholder.com/300x200">
+        <h5>Backpack</h5>
+        <p><del>₹1999</del> <strong>₹599</strong></p>
+        <button class="btn btn-warning btn-sm">Grab Deal</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Filters -->
+<div class="filters">
+  <button class="btn btn-dark">All</button>
+  <button class="btn btn-outline-dark">Featured</button>
+  <button class="btn btn-outline-dark">New</button>
+  <button class="btn btn-outline-dark">Special</button>
+</div>
+
+<!-- Products -->
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="product-card">
+        <img src="data:image/jpeg;base64,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"><h5>Product 1</h5>
+        <p>₹999</p>
+        <button class="btn btn-success btn-sm">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x200">
+        <h5>Product 2</h5>
+        <p>₹1299</p>
+        <button class="btn btn-success btn-sm">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x200">
+        <h5>Product 3</h5>
+        <p>₹799</p>
+        <button class="btn btn-success btn-sm">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x200">
+        <h5>Product 4</h5>
+        <p>₹1599</p>
+        <button class="btn btn-success btn-sm">Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 ShopZone. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
