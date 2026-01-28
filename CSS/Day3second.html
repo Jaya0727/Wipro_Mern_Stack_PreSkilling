@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Flowers School</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f1e5ba;
+        }
+
+        /* Header */
+        header {
+        header {
+            background-color:#c4e6c4;
+            color: black;
+            padding: 15px 30px;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+}
+
+
+        header img {
+            height: 50px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* Menu */
+        nav {
+            background-color: #edcfbc;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background-color: #d0d5d7;
+        }
+
+        /* Content */
+        .container-flex {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card-box {
+            background: rgb(157, 206, 233);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* Hide timetable initially */
+        #timetable {
+            display: none;
+        }
+
+        footer {
+            background-color: white;
+            color: black;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <img src="school logo.png" alt="School Logo">
+    <h1 style = "text-align: center;">Spring Flowers School</h1>
+</header>
+
+<!-- Menu -->
+<nav>
+    <a href="#" onclick="showHome()">Home</a>
+    <a href="#" onclick="showProfile()">Student Profile</a>
+    <a href="#" onclick="showTimeTable()">TimeTable</a>
+</nav>
+
+<!-- Main Content -->
+<div class="container-flex">
+
+    <!-- Welcome -->
+    <div id="home" class="card-box">
+        <h2>Welcome Student </h2>
+        <p>Welcome to Spring Flowers .</p>
+    </div>
+
+    <!-- Profile -->
+    <div id="profile" class="card-box">
+        <h2>Student Profile</h2>
+        <p><strong>Name:</strong> Jaya lakshmi</p>
+        <p><strong>Class:</strong>  10th Standard</p>
+        <p><strong>Roll No:</strong> 2026191411</p>
+    </div>
+
+    <!-- TimeTable -->
+    <div id="timetable" class="card-box">
+        <h2 class="mb-3">Student Time Table</h2>
+
+        <table class="table table-bordered table-striped text-center">
+            <thead class="table-primary">
+                <tr>
+                    <th>Day</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Monday</td>
+                    <td>Social</td>
+                    <td>Physics</td>
+                    <td>English</td>
+                    <td>chemistry</td>
+                </tr>
+                <tr>
+                    <td>Tuesday</td>
+                    <td>english</td>
+                    <td>Science</td>
+                    <td>physics</td>
+                    <td>Mathematics</td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td>Mathematics</td>
+                    <td>Games</td>
+                    <td>Physics</td>
+                    <td>English</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Spring Flowers School
+</footer>
+
+<!-- Simple JS only for view switching -->
+<script>
+    function showHome() {
+        document.getElementById("home").style.display = "block";
+        document.getElementById("profile").style.display = "block";
+        document.getElementById("timetable").style.display = "none";
+    }
+
+    function showProfile() {
+        document.getElementById("home").style.display = "none";
+        document.getElementById("profile").style.display = "block";
+        document.getElementById("timetable").style.display = "none";
+    }
+
+    function showTimeTable() {
+        document.getElementById("home").style.display = "none";
+        document.getElementById("profile").style.display = "none";
+        document.getElementById("timetable").style.display = "block";
+    }
+</script>
+
+</body>
+</html>

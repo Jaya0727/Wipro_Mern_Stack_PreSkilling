@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Discount Activity</title>
+</head>
+<body>
+<script>
+    // Array of product prices
+    const prices = [1500, 2500, 3000, 1800, 4000];
+    document.writeln("Original Prices: " + prices );
+    // Apply 10% discount on each item
+    const discountedPrices = prices.map(price => price - (price * 0.15));
+    document.writeln("Discounted Prices (15% off): " + discountedPrices );
+    // Filter items after discount which are > 2000
+    const filteredPrices = discountedPrices.filter(price => price > 2000);
+    document.writeln("Filtered Prices (> 2000): " + filteredPrices);
+    //Total of filtered prices
+    const totalPrice = filteredPrices.reduce((sum, price) => sum + price, 0);
+    document.writeln("Total Accumulated Price: " + totalPrice);
+</script>
+
+</body>
+</html>
+

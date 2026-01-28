@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+
+        // traditional way for incrementing the salary 
+
+        const salaries = [45000,67000 ,36000];
+
+        document.writeln(salaries[0]);
+
+/// this is traditional approach for map usage using for loop//
+        const newsalaries =[];
+
+        for(let i=0; i<salaries.length ;i++)
+        {
+
+            newsalaries.push(salaries[i] + 1000)
+        }
+
+        document.writeln("New Salary using traditional method :" + newsalaries);
+        
+        // this filter usage in traditional way
+        const highlypaidemployees = [];
+        for(let i=0 ; i<salaries.length ; i++)
+        {
+
+
+            if(salaries[i] > 20000)
+            highlypaidemployees.push(salaries[i]);
+        }
+
+        document.writeln("Highly paid employees using traditional method :" + highlypaidemployees);
+/// for reduce approach in traditional way
+        let totalSalary = 0;
+         for(let i=0 ; i<salaries.length ; i++)
+         {
+            totalSalary += salaries[i];
+         }
+
+         document.writeln("Total salary of employees using traditional method :" + totalSalary);
+
+        // using pure functions for incrementing the salary 
+                const empsalaries = [45000,67000 ,36000];
+                const empnewsalaries =  empsalaries.map(sal => sal+1000);
+                document.writeln("New Salary using pure function method :" + empnewsalaries);
+                const filteredsalaries =  empsalaries.filter(sal => sal>40000);
+                document.writeln("filtered Salary using pure function method :" + filteredsalaries);
+                const totalsalaries =  empsalaries.reduce((sum,sal) => sum + sal , 0);   
+                document.writeln("Total accumulated salary using pure function method :" + totalsalaries);
+        // sum of natural numbers
+                const naturalNumbers = [1,2,3,4,5,6,7,8,9,10];
+                const totalSum = naturalNumbers.reduce((sum, n) => sum + n, 0);
+                document.writeln("Sum using reduce method: " + totalSum);
+
+  </script>  
+</body>
+</html>
