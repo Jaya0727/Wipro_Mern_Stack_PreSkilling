@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Flowers School</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f1e5ba;
+        }
+
+        /* COMMON */
+        .hidden {
+            display: none;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #388e3c;
+        }
+
+        /* LOGIN PAGE */
+        .login-box {
+            max-width: 400px;
+            margin: 120px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* SPRINT 1 STYLES (UNCHANGED) */
+        header {
+            background-color: #c4e6c4;
+            padding: 15px 30px;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+        }
+
+        nav {
+            background-color: #edcfbc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+
+        .container {
+            padding: 30px;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .welcome, .profile, .activity-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!------ LOGIN PAGE (SPRINT 2) ------->
+<div id="loginPage" class="login-box">
+    <h2>Student Login</h2>
+    <input type="text" id="username" placeholder="Enter Username">
+    <input type="password" id="password" placeholder="Enter Password">
+    <button onclick="login()">Login</button>
+</div>
+
+<!--------SPRINT 1 : WELCOME PAGE -------->
+<div id="welcomePage" class="hidden">
+
+    <header>
+        <h1>Spring Flowers School</h1>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Student Profile</a>
+        <a href="#" onclick="openMonthlyActivity()">Monthly Activity</a>
+    </nav>
+
+    <div class="container">
+
+        <div class="welcome">
+            <h2>Welcome to Spring Flowers School</h2>
+            <p>Have a Bright Future ahead!</p>
+        </div>
+
+        <div class="profile">
+            <h2>Student Profile</h2>
+            <p><strong>Name:</strong> Jaya Lakshmi</p>
+            <p><strong>Class:</strong> 10th Standard</p>
+            <p><strong>Roll Number:</strong> 2026191411</p>
+            <p><strong>School:</strong> Spring Flowers School</p>
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 Spring Flowers School | All Rights Reserved
+    </footer>
+
+</div>
+
+<!-----MONTHLY ACTIVITY PAGE (SPRINT 2) ------>
+<div id="activityPage" class="hidden container">
+
+    <div class="activity-box">
+        <h2>Monthly Activities</h2>
+
+        <select id="subjectSelect" onchange="showActivities()">
+            <option value="">Select Subject</option>
+            <option value="Maths">Maths</option>
+            <option value="Science">Science</option>
+            <option value="English">English</option>
+        </select>
+
+        <div id="activityList"></div>
+
+        <button onclick="backToWelcome()">Back</button>
+    </div>
+
+</div>
+
+<script>
+    // Monthly Activities Array
+    const monthlyActivities = [
+        { id: 1, activity: "Create project file which contains tables between 12 to 19", subject: "Maths" },
+        { id: 2, activity: "Solve algebra worksheet", subject: "Maths" },
+        { id: 3, activity: "Prepare science experiment record", subject: "Science" },
+        { id: 4, activity: "Write essay on environment", subject: "English" }
+    ];
+
+    function login() {
+        const user = document.getElementById("username").value;
+        const pass = document.getElementById("password").value;
+
+        if (user === "Jaya Lakshmi" && pass === "01") {
+            document.getElementById("loginPage").classList.add("hidden");
+            document.getElementById("welcomePage").classList.remove("hidden");
+        } else {
+            alert("Invalid credentials");
+        }
+    }
+
+    function openMonthlyActivity() {
+        document.getElementById("welcomePage").classList.add("hidden");
+        document.getElementById("activityPage").classList.remove("hidden");
+    }
+
+    function backToWelcome() {
+        document.getElementById("activityPage").classList.add("hidden");
+        document.getElementById("welcomePage").classList.remove("hidden");
+    }
+
+    function showActivities() {
+        const subject = document.getElementById("subjectSelect").value;
+        const list = document.getElementById("activityList");
+        list.innerHTML = "";
+
+        const filtered = monthlyActivities.filter(a => a.subject === subject);
+
+        if (filtered.length === 0) {
+            list.innerHTML = "<p>No activities found</p>";
+            return;
+        }
+
+        filtered.forEach(a => {
+            const div = document.createElement("div");
+            div.className = "activity-box";
+            div.textContent = a.activity;
+            list.appendChild(div);
+        });
+    }
+</script>
+
+</body>
+</html>

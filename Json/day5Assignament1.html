@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daily Assignment on Fetch API</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+
+        .post, .todo {
+            background: white;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+        }
+
+        .todo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Daily Assignment on Fetch API</h1>
+
+<h2>Blog Posts</h2>
+<div id="posts"></div>
+
+<h2>Todo List</h2>
+<div id="todos"></div>
+
+<p id="error" class="error"></p>
+
+<script>
+/*
+    Module Pattern (as required)
+*/
+const FetchApp = (function () {
+
+    const BASE_URL = "https://jsonplaceholder.typicode.com";
+    const POSTS_URL = BASE_URL + "/posts";
+    const TODOS_URL = BASE_URL + "/todos";
+
+    async function fetchData(url) {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error("Network error");
+        }
+        return response.json();
+    }
+
+    function showPosts(posts) {
+        const postsDiv = document.getElementById("posts");
+
+        posts.forEach(post => {
+            const div = document.createElement("div");
+            div.className = "post";
+            div.innerHTML = `
+                <strong>${post.title}</strong>
+                <p>${post.body}</p>
+            `;
+            postsDiv.appendChild(div);
+        });
+    }
+
+    function showTodos(todos) {
+        const todosDiv = document.getElementById("todos");
+
+        todos.forEach(todo => {
+            const div = document.createElement("div");
+            div.className = "todo";
+
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.checked = todo.completed;
+
+            const label = document.createElement("span");
+            label.textContent = todo.title;
+
+            if (todo.completed) {
+                label.classList.add("completed");
+            }
+
+            // Real checkbox interaction
+            checkbox.addEventListener("change", function () {
+                label.classList.toggle("completed");
+            });
+
+            div.appendChild(checkbox);
+            div.appendChild(label);
+            todosDiv.appendChild(div);
+        });
+    }
+
+    async function init() {
+        try {
+            const posts = await fetchData(POSTS_URL);
+            showPosts(posts);
+
+            const todos = await fetchData(TODOS_URL);
+            showTodos(todos);
+        } catch (err) {
+            document.getElementById("error").textContent =
+                "Error fetching data from the server.";
+        }
+    }
+
+    return {
+        init
+    };
+
+})();
+
+FetchApp.init();
+</script>
+
+</body>
+</html>

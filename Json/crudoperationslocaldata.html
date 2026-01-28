@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product CRUD</title>
+</head>
+<body>
+
+<h3>Product Management Operations</h3>
+<button onclick="fetchProducts()">Fetch Products</button>
+<button onclick="addProduct()">Add Product</button>
+<button onclick="updateProduct()">Update Product</button>
+<button onclick="deleteProduct()">Delete Product</button>
+<ul id="productList"></ul>
+<script>
+    // Json product data
+    const jsonData = `[
+        {"item" : "Laptop" , "price" : 60000},
+        {"item" : "Mouse" , "price" : 500},
+        {"item" : "Keyboard" , "price" : 700},
+        {"item" : "Speaker" , "price" : 5000},
+        {"item" : "Tablet" , "price" : 20000}
+    ]`;
+    // Converting Json data 
+    let products = JSON.parse(jsonData);
+    const ul = document.getElementById("productList");
+
+    // Fectch products
+    function fetchProducts(){
+        ul.innerHTML = "";
+        products.forEach((product,index) => {
+            const li = document.createElement("li");
+            li.textContent = `ID : ${index} | Item : ${product.item} | Price : ${product.price}`;
+            ul.append(li);
+        });
+    }
+
+    // Add product
+    function addProduct(){
+        const item = prompt("Enter product name");
+        const price = prompt("Enter product price");
+        products.push({ item, price });
+        alert("Product Added");
+        getProducts();
+    }
+
+    // Update product
+    function updateProduct(){
+        const id = prompt("Enter product ID to update");
+        if(products[id]){
+            products[id].item = prompt("Enter new product name");
+            products[id].price = prompt("Enter new price");
+            alert("Product Updated");
+            getProducts();
+        } else {
+            alert("Invalid Product ID");
+        }
+    }
+
+    // Delete product
+function deleteProduct() {
+    const id = prompt("Enter product ID to delete");
+    if (products[id]) {
+        products = products.filter((_, index) => index != id);
+        alert("Product Deleted");
+        fetchProducts();
+    } else {
+        alert("Invalid Product ID");
+    }
+}
+</script>
+</body>
+</html>

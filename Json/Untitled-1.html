@@ -1,0 +1,108 @@
+
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Fetch API Assignment</title> 
+    <style> 
+        body { 
+            font-family: Arial; 
+            margin: 20px; 
+        } 
+        h2 { 
+            margin-top: 30px; 
+        } 
+        .error { 
+            color: red; 
+            font-weight: bold; 
+        } 
+        li { 
+            margin-bottom: 5px; 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+<h1>Blog Posts & Todo List</h1> 
+<button onclick="App.loadPosts()">Fetch Posts</button> 
+<button onclick="App.loadTodos()">Fetch Todos</button> 
+<p id="error" class="error"></p> 
+<h2>Posts</h2> 
+<ul id="posts"></ul> 
+<h2>Todos</h2> 
+<ul id="todos"></ul> 
+<script> 
+/* ================================ 
+Module Pattern Implementation 
+================================ */ 
+const App = (function () { 
+const postURL = "https://jsonplaceholder.typicode.com/posts"; 
+const todoURL = "https://jsonplaceholder.typicode.com/todos"; 
+const postList = document.getElementById("posts"); 
+const todoList = document.getElementById("todos"); 
+const errorBox = document.getElementById("error"); 
+ 
+    function showError(message) { 
+        errorBox.textContent = message; 
+    } 
+ 
+    function clearError() { 
+        errorBox.textContent = ""; 
+    } 
+ 
+    // Fetch & Display Posts 
+    function loadPosts() { 
+        clearError(); 
+        postList.innerHTML = ""; 
+ 
+        fetch(postURL) 
+            .then(response => { 
+                if (!response.ok) { 
+                    throw new Error("Failed to fetch posts"); 
+                } 
+                return response.json(); 
+            }) 
+            .then(posts => { 
+                posts.slice(0, 10).forEach(post => { 
+                    const li = document.createElement("li"); 
+                    li.textContent = post.title; 
+                    postList.appendChild(li); 
+                }); 
+            }) 
+            .catch(err => showError(err.message)); 
+    } 
+ 
+    // Fetch & Display Todos 
+    function loadTodos() { 
+        clearError(); 
+        todoList.innerHTML = ""; 
+ 
+        fetch(todoURL) 
+            .then(response => { 
+                if (!response.ok) { 
+                    throw new Error("Failed to fetch todos"); 
+                } 
+                return response.json(); 
+            }) 
+            .then(todos => { 
+                todos.slice(0, 10).forEach(todo => { 
+                    const li = document.createElement("li"); 
+                    li.textContent = `${todo.title} - ${todo.completed ? " Completed" : " 
+Pending"}`; 
+                    todoList.appendChild(li); 
+                }); 
+            }) 
+            .catch(err => showError(err.message)); 
+    } 
+ 
+    // Revealing Module Pattern 
+    return { 
+        loadPosts, 
+        loadTodos 
+    }; 
+ 
+})(); 
+</script> 
+ 
+</body> 
+</html> 
