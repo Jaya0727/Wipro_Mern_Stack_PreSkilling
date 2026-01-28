@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Skirt",
+      "price": 799,
+      "image": "/Images/Skirt.jpg"
+    },
+    {
+      "id": 2,
+      "title": "T-Shirt",
+      "price": 499,
+      "image": "/Images/Tshirt.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Shirt",
+      "price": 799,
+      "image": "/Images/Shirt.jpg"
+    }
+  ],
+  "cart": [
+    {
+      "productId": 2,
+      "title": "T-Shirt",
+      "price": 499,
+      "image": "/Images/Tshirt.jpg",
+      "quantity": 1,
+      "id": 4
+    }
+  ]
+}

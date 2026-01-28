@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Skirt",
+    "price": 799,
+    "image": "/Images/Skirt.jpg"
+  },
+  {
+    "id": 2,
+    "title": "T-Shirt",
+    "price": 499,
+    "image": "/Images/Tshirt.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Shirt",
+    "price": 1299,
+    "image": "/Images/Shirt.jpg"
+  }
+]
