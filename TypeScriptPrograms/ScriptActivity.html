@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Salary Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #edb3b3;
+        }
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #580545;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0 15px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #51dada;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #60d5ef;
+        }
+        .result {
+            margin-top: 20px;
+            background: #f0f8f5;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Monthly Salary Calculator</h2>
+
+    <label>Employee</label>
+    <input type="text" id="name">
+
+    <label>Working Days</label>
+    <input type="number" id="days">
+
+    <label>Basic Pay per Day</label>
+    <input type="number" id="pay">
+
+    <label>Bonus</label>
+    <input type="number" id="bonus">
+
+    <button onclick="calculateSalary()">Calculate Salary</button>
+
+    <div class="result" id="output"></div>
+</div>
+
+<script>
+    function calculateSalary() {
+        let name = document.getElementById("name").value;
+        let days = Number(document.getElementById("days").value);
+        let pay = Number(document.getElementById("pay").value);
+        let bonus = Number(document.getElementById("bonus").value);
+
+        // Gross Salary
+        let grossSalary = (days * pay) + bonus;
+
+        // Tax Calculation
+        let tax;
+        if (grossSalary <= 20000) {
+            tax = grossSalary * 0.05;
+        } else if (grossSalary <= 40000) {
+            tax = grossSalary * 0.10;
+        } else {
+            tax = grossSalary * 0.15;
+        }
+
+        // Net Salary
+        let netSalary = grossSalary - tax;
+
+        // Display Output
+        document.getElementById("output").innerHTML = `
+            <h3>Salary Details</h3>
+            <p><strong>Employee Name:</strong> ${name}</p>
+            <p><strong>Gross Salary:</strong> Rs. ${grossSalary}</p>
+            <p><strong>Tax Deduction:</strong> Rs. ${tax}</p>
+            <p><strong>Net Salary:</strong> Rs. ${netSalary}</p>
+        `;
+    }
+</script>
+
+</body>
+</html>
+
