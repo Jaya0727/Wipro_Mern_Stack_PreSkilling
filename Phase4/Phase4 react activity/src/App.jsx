@@ -15,7 +15,7 @@ import Login from "./Pages/Login";
 
 import { CartActions } from "./flux/actions/CartActions";
 
-//  Separate component for routes (needed for AnimatePresence)
+//  Separate component for routes
 const AppRoutes = () => {
   const location = useLocation();
 
@@ -43,7 +43,7 @@ const AppRoutes = () => {
 
 function App() {
 
-  // ✅ Rehydrate Flux cart from backend on app load / refresh
+  // Rehydrate Flux cart from backend on app load 
   useEffect(() => {
     fetch("http://localhost:4000/cart")
       .then(res => res.json())
@@ -61,5 +61,6 @@ function App() {
     </BrowserRouter>
   );
 }
+
 
 export default App;
