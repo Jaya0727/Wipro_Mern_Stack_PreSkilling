@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Socket.IO Chat</title>
+</head>
+<body>
+  <h2>Challenge 3 Real-Time Chat</h2>
+  <input id="msg" placeholder="Type message..." />
+  <button onclick="send()">Send</button>
+  <ul id="messages"></ul>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    socket.on("chatMessage", (msg) => {
+      const li = document.createElement("li");
+      li.textContent = msg;
+      document.getElementById("messages").appendChild(li);
+    });
+
+    function send() {
+      const msg = document.getElementById("msg").value;
+      socket.emit("chatMessage", msg);
+      document.getElementById("msg").value = "";
+    }
+  </script>
+</body>
+</html>
