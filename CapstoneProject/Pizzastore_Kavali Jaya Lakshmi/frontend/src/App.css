@@ -1,0 +1,314 @@
+body {
+  background-color: gray;
+}
+
+h2 {
+  color: #333;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  transition: 0.3s ease;
+}
+.section-banner {
+  height: 50px;
+  border-radius: 20px;
+  margin: 40px 2px 30px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay h2 {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.best-seller-heading {
+  background: #fff4d6;  
+  padding: 15px 0;
+  text-align: center;
+  margin: 40px 0 20px 0;
+  border-radius: 8px;
+}
+
+.best-seller-heading h2 {
+  color: #d4af37;  
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+.newly-added-heading {
+  background: #fff4d6; 
+  padding: 15px 0;
+  text-align: center;
+  margin: 40px 0 20px 0;
+  border-radius: 8px;
+}
+
+.newly-added-heading h2 {
+  color: #d4af37; 
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.veg-section-heading {
+  background: #fff4d6; 
+  padding: 15px 0;
+  text-align: center;
+  margin: 40px 0 20px 0;
+  border-radius: 8px;
+}
+
+.veg-section-heading h2 {
+  color: #d4af37; 
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+.nonveg-section-heading {
+  background: #fff4d6; 
+  padding: 15px 0;
+  text-align: center;
+  margin: 40px 0 20px 0;
+  border-radius: 8px;
+}
+
+.nonveg-section-heading h2 {
+  color: #d4af37; 
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+.sides-section-heading {
+  background: #fff4d6; 
+  padding: 15px 0;
+  text-align: center;
+  margin: 40px 0 20px 0;
+  border-radius: 8px;
+}
+
+.sides-section-heading h2 {
+  color: #d4af37; 
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+.beverages-section-heading {
+  background: #fff4d6; 
+  padding: 15px 0;
+  text-align: center;
+  margin: 40px 0 20px 0;
+  border-radius: 8px;
+}
+
+.beverages-section-heading h2 {
+  color: #d4af37; 
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+.section-banner:hover {
+  transform: scale(1.02);
+  transition: 0.4s ease;
+}
+.hero-banner {
+  height: 450px;
+  width: 100%;
+  background-image: url("https://images.unsplash.com/photo-1604382355076-af4b0eb60143?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBpenphJTIwc2xpY2V8ZW58MHx8MHx8fDA%3D");
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  margin: 20px 0 40px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-text {
+  color: white;
+  text-align: center;
+  max-width: 600px;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+}
+.checkout-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.checkout-box {
+  background: #fff;
+  padding: 30px;
+  width: 400px;
+  border-radius: 12px;
+}
+/* HORIZONTAL SCROLL */
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px 5px;
+  scroll-behavior: smooth;
+}
+
+.scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.scroll-card {
+  min-width: 250px;
+  flex: 0 0 auto;
+}
+
+.footer {
+  background: #111;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.pizza-card {
+  width: 260px; 
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.pizza-card img {
+  height: 180px;
+  object-fit: cover;
+}
+.pizza-card .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.upi-page {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    #f7f2eb,
+  );
+}
+.upi-card {
+  background: #fff;
+  padding: 35px;
+  border-radius: 20px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 10px 30px
+    rgba(0, 0, 0, 0.2);
+}
+.upi-title {
+  font-weight: bold;
+  color: #333;
+}
+.upi-subtitle {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 20px;
+}
+.qr-box {
+  background: #fafafa;
+  padding: 15px;
+  border-radius: 15px;
+  display: inline-block;
+  box-shadow: inset 0 0 10px
+    rgba(0, 0, 0, 0.05);
+}
+.upi-id {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+.upi-amount {
+  margin-top: 10px;
+  color: #e53935;
+  font-weight: bold;
+}
+.upi-pay-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+.upi-pay-btn:hover {
+  transform: scale(1.05);
+}
+
+.food-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.veg-dot {
+  background-color: #28a745;
+}
+
+.nonveg-dot {
+  background-color: #dc3545;
+}
